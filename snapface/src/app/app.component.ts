@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
       'A bird',
       'https://cdn.pixabay.com/photo/2025/01/26/20/33/robin-9361610_1280.jpg',
       new Date(),
-      10
+      200
     )
   ];
 
