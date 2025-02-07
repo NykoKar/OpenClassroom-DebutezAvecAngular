@@ -36,15 +36,17 @@ export class FaceSnapsService {
     return [...this.faceSnaps]; // we use ... because we want to return a copy of the array
   }
 
-
-
-  snapFaceSnapById(faceSnapId: string, snapType: SnapType) {
+  getFaceSnapById(faceSnapId: string) {
     const foundFaceSnap: FaceSnap | undefined = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
     if(!foundFaceSnap) {
       throw('FaceSnap not found');
     }
+    return foundFaceSnap;
+  }
 
-    foundFaceSnap.snap(snapType);
+  snapFaceSnapById(faceSnapId: string, snapType: SnapType) {
+    const faceSnap = this.getFaceSnapById(faceSnapId);
+    faceSnap.snap(snapType);
   }
 
 
