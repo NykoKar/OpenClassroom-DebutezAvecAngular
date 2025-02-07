@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgStyle, NgClass } from '@angular/common';
+import { NgStyle, NgClass, UpperCasePipe, DatePipe } from '@angular/common';
 import { FaceSnap } from '../models/face-snap';
 
 @Component({
@@ -7,6 +7,8 @@ import { FaceSnap } from '../models/face-snap';
   imports: [
     NgStyle,
     NgClass,
+    UpperCasePipe,
+    DatePipe
   ],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
