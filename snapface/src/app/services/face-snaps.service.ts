@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FaceSnap } from "../models/face-snap";
+import { SnapType } from "../models/snap-type.type";
 
 // The @Injectable() decorator is used to define a service class.
 // providedIn: 'root' specifies that the service should be provided in the root injector.
@@ -35,8 +36,21 @@ export class FaceSnapsService {
     return [...this.faceSnaps]; // we use ... because we want to return a copy of the array
   }
 
+
+
+  snapFaceSnapById(faceSnapId: string, snapType: SnapType) {
+    const foundFaceSnap: FaceSnap | undefined = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+    if(!foundFaceSnap) {
+      throw('FaceSnap not found');
+    }
+
+    foundFaceSnap.snap(snapType);
+  }
+
+
   addFaceSnap(faceSnap: FaceSnap) {
     this.faceSnaps.push(faceSnap);
   }
 
 }
+
